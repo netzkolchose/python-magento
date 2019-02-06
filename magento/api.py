@@ -57,11 +57,10 @@ class ClientApiMeta(type):
         return Klass
 
 
-class API(object):
+class API(object, metaclass=ClientApiMeta):
     """
     Generic API to connect to magento
     """
-    __metaclass__ = ClientApiMeta
     __abstract__ = True
 
     def __init__(self, url, username, password,
